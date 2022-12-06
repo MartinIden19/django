@@ -50,6 +50,10 @@ class Matches(models.Model):
     ExpressPrediction = models.CharField('Пронгоз для Экспресс-пула', max_length=20)
     Result = models.CharField('Результат матча', max_length=20)
     
+    PredictionText = models.CharField('Текст прогноза', max_length=20)
+    Probability = models.IntegerField('Вероятность', max_length=20)
+    Success = models.CharField('Успешность', max_length=20)
+    
     def __str__(self):
         return self.Teams
     
