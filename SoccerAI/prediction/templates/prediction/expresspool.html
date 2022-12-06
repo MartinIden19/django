@@ -1,9 +1,9 @@
 {% extends 'prediction/header.html' %}
-{% block title %}<title>Экспресс-пул</title>{% endblock title %}
+{% block title %}<title>Express Pool</title>{% endblock title %}
 {% block menu %}
-    <a href=""><li style="float:right;" class="not-selected">Личный кабинет</li></a>
-    <a href="{% url 'predcition' %}"><li class="not-selected">Прогнозы</li></a>
-    <a href="{% url 'expresspool' %}"><li class="selected">Экспресс-пул</li></a>
+    <!--<a href=""><li style="float:right;" class="not-selected">Личный кабинет</li></a>-->
+    <a href="{% url 'predcition' %}"><li class="not-selected">Predictions</li></a>
+    <a href="{% url 'expresspool' %}"><li class="selected">Express Pool</li></a>
 {% endblock menu %}
 {% block maincontent %}
 <main>

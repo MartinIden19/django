@@ -1,58 +1,62 @@
 {% extends 'prediction/header.html' %}
-{% block title %}<title>Прогнозы</title>{% endblock title %}
+{% block title %}<title>Predictions</title>{% endblock title %}
 {% block menu %}
-    <a href=""><li style="float:right;" class="not-selected">Личный кабинет</li></a>
-    <a href="{% url 'predcition' %}"><li class="selected">Прогнозы</li></a>
-    <a href="{% url 'expresspool' %}"><li class="not-selected">Экспресс-пул</li></a>
+    <!--<a href=""><li style="float:right;" class="not-selected">Личный кабинет</li></a>-->
+    <a href="{% url 'predcition' %}"><li class="selected">Predictions</li></a>
+    <a href="{% url 'expresspool' %}"><li class="not-selected">Express Pool</li></a>
 {% endblock menu %}
 {% block maincontent %}
 <main>
     <div class="main-content">
 
+        {% for match in matches %}
+
         <div class="match-content">
             <div class="match-datetime">
-                <span>16/10/2022</span>
-                <span>22:00</span>
+                <span>{{ match.Date }}</span>
+                <span>{{ match.Time }}</span>
             </div>
             <div class="match-teams">
-                <span>Manchester City</span>
-                <span>Manchester United</span>
+                <span>{{ match.HomeTeam }}</span>
+                <span>{{ match.AwayTeam }}</span>
             </div>
             <div class="match-odds">
                 <div class="one-way-odds" style="margin-right: 10px;">
                     <div class="odd-box">
                         <span>1</span>
-                        <span class="odds">1.60</span>
+                        <span class="odds">{{ match.AvgCH }}</span>
                     </div>
                     <div class="odd-box">
                         <span>X</span>
-                        <span class="odds">1.60</span>
+                        <span class="odds">{{ match.AvgCD }}</span>
                     </div>
                     <div class="odd-box">
                         <span>2</span>
-                        <span class="odds">1.60</span>
+                        <span class="odds">{{ match.AvgCA }}</span>
                     </div>
                 </div>
                 <div class="one-way-odds">
                     <div class="odd-box">
                         <span>1X</span>
-                        <span class="odds">1.60</span>
+                        <span class="odds">{{ match.DoubleChanceHD }}</span>
                     </div>
                     <div class="odd-box">
                         <span>12</span>
-                        <span class="odds">1.60</span>
+                        <span class="odds">{{ match.DoubleChanceHA }}</span>
                     </div>
                     <div class="odd-box">
                         <span>X2</span>
-                        <span class="odds">1.60</span>
+                        <span class="odds">{{ match.DoubleChanceAD }}</span>
                     </div>
                 </div>
             </div>
             <div class="match-prediction">
-                <span>Manchester City to win - 80%</span>
+                <span>MC to win</span>
                 <span>Predicted</span>
             </div>
         </div>
+
+        {% endfor %}
 
     </div>
 </main>
