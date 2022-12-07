@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils.translation import gettext as _
 
 class ClubMatches(models.Model):
     Date = models.DateField('Дата')
