@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext as _
 
-class Matches(models.Model):
+class ClubMatches(models.Model):
     Date = models.DateField('Дата')
     Country = models.CharField('Страна', max_length=50)
     Tournament = models.CharField('Турнир', max_length=50)
@@ -49,15 +49,12 @@ class Matches(models.Model):
     Prediction = models.CharField('Прогноз', max_length=20)
     ExpressPrediction = models.CharField('Пронгоз для Экспресс-пула', max_length=20)
     Result = models.CharField('Результат матча', max_length=20)
-    
-    PredictionText = models.CharField('Текст прогноза', max_length=20)
-    Probability = models.IntegerField('Вероятность', max_length=20)
-    Success = models.CharField('Успешность', max_length=20)
+    PredictionText = models.CharField('Текст прогноза', max_length=100)
+    Probability = models.IntegerField('Вероятность')
+    Success = models.CharField('Успешность', max_length=30)
     
     def __str__(self):
         return self.Teams
-    
     class Meta:
         verbose_name = 'Матч'
         verbose_name_plural = 'Матчи'
-    
