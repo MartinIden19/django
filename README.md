@@ -1,3 +1,3 @@
 # django
 
-Django project fpr SoccerAITelegram algorithm
+Django project for SoccerAITelegram algorithm
