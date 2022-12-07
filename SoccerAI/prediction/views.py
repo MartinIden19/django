@@ -1,13 +1,11 @@
 from django.shortcuts import render
 from django.db.models import Q
-#from .models import Matches
+from .models import ClubMatches
 
 def prediction(request):
-    #//matches = Matches.objects.filter(~Q(Prediction="No")).order_by('-Date','-Time')
-    matches = [1, 2]
+    matches = ClubMatches.objects.filter(~Q(Prediction="No")).order_by('-Date','-Time')
     return render(request, 'prediction/prediction.html', {'matches' : matches})
 
 def expresspool(request):
-    #matches = Matches.objects.filter(~Q(ExpressPrediction="No"))
-    matches = [1, 2]
+    matches = ClubMatches.objects.filter(~Q(ExpressPrediction="No")).order_by('-Date','-Time')
     return render(request, 'prediction/expresspool.html', {'matches' : matches})

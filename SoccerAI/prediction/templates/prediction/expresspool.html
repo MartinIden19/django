@@ -8,6 +8,56 @@
 {% block maincontent %}
 <main>
     <div class="main-content">
+
+        {% for match in matches %}
+
+        <div class="match-content">
+            <div class="match-datetime">
+                <span>{{ match.Date }}</span>
+                <span>{{ match.Time }}</span>
+            </div>
+            <div class="match-teams">
+                <span>{{ match.HomeTeam }}</span>
+                <span>{{ match.AwayTeam }}</span>
+            </div>
+            <div class="match-odds">
+                <div class="one-way-odds" style="margin-right: 10px;">
+                    <div class="odd-box">
+                        <span>1</span>
+                        <span class="odds">{{ match.AvgCH }}</span>
+                    </div>
+                    <div class="odd-box">
+                        <span>X</span>
+                        <span class="odds">{{ match.AvgCD }}</span>
+                    </div>
+                    <div class="odd-box">
+                        <span>2</span>
+                        <span class="odds">{{ match.AvgCA }}</span>
+                    </div>
+                </div>
+                <div class="one-way-odds">
+                    <div class="odd-box">
+                        <span>1X</span>
+                        <span class="odds">{{ match.DoubleChanceHD }}</span>
+                    </div>
+                    <div class="odd-box">
+                        <span>12</span>
+                        <span class="odds">{{ match.DoubleChanceHA }}</span>
+                    </div>
+                    <div class="odd-box">
+                        <span>X2</span>
+                        <span class="odds">{{ match.DoubleChanceAD }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="match-prediction">
+                <span>{{ match.PredictionText }} - {{ match.Probability }}%</span>
+                <span>{{ match.Success }}</span>
+            </div>
+        </div>
+
+        {% endfor %}
+
     </div>
 </main>
 {% endblock maincontent %}
